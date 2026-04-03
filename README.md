@@ -1,3 +1,5 @@
+## les instructions suivantes sont pour MACOS si vous êtes sur un autre OS merci d'enlever le 3 après python.
+
 ## Exercice 1 — Affichage de blocs texte en console
 
 ### Lancement
