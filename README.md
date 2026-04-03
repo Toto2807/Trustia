@@ -39,6 +39,7 @@ python3 manage.py runserver
 ## Utilisation de l'IA
 
 > L'exercice 1 a été réalisé de manière autonome afin de démontrer la logique et la compréhension du problème. Cependant l'IA m'a permis de régler quelques erreurs d'inatentions qui empêchaient le code de correctement s'executer.
+
 Pour l'exercice 2, Claude (Anthropic) a été utilisé : 
 - explication des concepts Django (models, views, templates, formulaires, pagination), 
 - aide à la compréhension de la structure d'un projet,
