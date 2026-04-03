@@ -1,0 +1,42 @@
+{% extends 'produits/base.html' %}
+
+{% block contenu %}
+<h1>Liste des factures</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Date de création</th>
+            <th>Nombre de produits</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for facture in factures %}
+        <tr>
+            <td>{{ facture }}</td>
+            <td>{{ facture.date_creation|date:"d/m/Y H:i" }}</td>
+            <td>{{ facture.nombre_produits }}</td>
+            <td>{{ facture.total }} €</td>
+            <td>
+                <a href="{% url 'detail_facture' facture.pk %}" class="btn btn-blue">Voir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">Aucune facture pour l'instant.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    {% if factures.has_previous %}
+        <a href="?page={{ factures.previous_page_number }}">← Précédent</a>
+    {% endif %}
+    <span>Page {{ factures.number }} / {{ factures.paginator.num_pages }}</span>
+    {% if factures.has_next %}
+        <a href="?page={{ factures.next_page_number }}">Suivant →</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'produits/base.html' %}
+
+{% block contenu %}
+<h1>Liste des produits</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Date de péremption</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for produit in produits %}
+        <tr>
+            <td>{{ produit.nom }}</td>
+            <td>{{ produit.prix }} €</td>
+            <td>{{ produit.date_peremption }}</td>
+            <td>
+                <a href="{% url 'modifier_produit' produit.pk %}" class="btn btn-blue">Modifier</a>
+                <a href="{% url 'supprimer_produit' produit.pk %}" class="btn btn-red">Supprimer</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">Aucun produit pour l'instant.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    {% if produits.has_previous %}
+        <a href="?page={{ produits.previous_page_number }}">← Précédent</a>
+    {% endif %}
+    <span>Page {{ produits.number }} / {{ produits.paginator.num_pages }}</span>
+    {% if produits.has_next %}
+        <a href="?page={{ produits.next_page_number }}">Suivant →</a>
+    {% endif %}
+</div>
+{% endblock %}

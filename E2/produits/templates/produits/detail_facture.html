@@ -1,0 +1,35 @@
+{% extends 'produits/base.html' %}
+
+{% block contenu %}
+<h1>{{ facture }}</h1>
+<p>Créée le {{ facture.date_creation|date:"d/m/Y à H:i" }}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Produit</th>
+            <th>Prix unitaire</th>
+            <th>Quantité</th>
+            <th>Sous-total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in facture.items.all %}
+        <tr>
+            <td>{{ item.produit.nom }}</td>
+            <td>{{ item.produit.prix }} €</td>
+            <td>{{ item.quantite }}</td>
+            <td>{{ item.sous_total }} €</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div style="background: white; padding: 15px; margin-top: 20px; border-radius: 8px; max-width: 300px;">
+    <p><strong>Nombre total de produits :</strong> {{ facture.nombre_produits }}</p>
+    <p><strong>Total à payer :</strong> {{ facture.total }} €</p>
+</div>
+
+<br>
+<a href="{% url 'liste_factures' %}" class="btn btn-blue">← Retour aux factures</a>
+{% endblock %}

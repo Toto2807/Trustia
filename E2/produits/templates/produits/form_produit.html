@@ -1,0 +1,15 @@
+{% extends 'produits/base.html' %}
+
+{% block contenu %}
+<h1>{{ titre }}</h1>
+
+<div style="background: white; padding: 20px; border-radius: 8px; max-width: 500px;">
+    <form method="post">
+        {% csrf_token %}
+        <table>{{ form.as_table }}</table>
+        <br>
+        <button type="submit" class="btn btn-green">Enregistrer</button>
+        <a href="{% url 'liste_produits' %}" class="btn btn-blue">Annuler</a>
+    </form>
+</div>
+{% endblock %}

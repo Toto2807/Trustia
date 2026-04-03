@@ -1,0 +1,14 @@
+{% extends 'produits/base.html' %}
+
+{% block contenu %}
+<h1>Supprimer un produit</h1>
+
+<div style="background: white; padding: 20px; border-radius: 8px; max-width: 500px;">
+    <p>Es-tu sûr de vouloir supprimer <strong>{{ produit.nom }}</strong> ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-red">Oui, supprimer</button>
+        <a href="{% url 'liste_produits' %}" class="btn btn-blue">Annuler</a>
+    </form>
+</div>
+{% endblock %}

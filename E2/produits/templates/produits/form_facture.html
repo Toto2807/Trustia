@@ -1,0 +1,33 @@
+{% extends 'produits/base.html' %}
+
+{% block contenu %}
+<h1>Créer une facture</h1>
+
+<div style="background: white; padding: 20px; border-radius: 8px;">
+    <form method="post">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        <table>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in formset %}
+                <tr>
+                    <td>{{ form.produit }}</td>
+                    <td>{{ form.quantite }}</td>
+                    <td>{{ form.DELETE }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <button type="submit" class="btn btn-green">Créer la facture</button>
+        <a href="{% url 'liste_factures' %}" class="btn btn-blue">Annuler</a>
+    </form>
+</div>
+{% endblock %}
