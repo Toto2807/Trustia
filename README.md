@@ -8,6 +8,14 @@
 python3 E1_Trustia.py
 ```
 
+## Exercice 2 v2 — Affichage de blocs texte en console
+
+### Lancement
+
+```bash
+python3 E2_Trustia.py
+```
+
 
 ## Exercice 2 — Application web Django
 
