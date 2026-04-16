@@ -5,7 +5,7 @@
 ### Lancement
 
 ```bash
-python3 exercice1.py
+python3 E1_Trustia.py
 ```
 
 
